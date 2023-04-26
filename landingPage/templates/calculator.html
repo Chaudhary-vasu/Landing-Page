@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1 class="mb-10" style="color: coral">
+  <center>Calculator</center>
+</h1>
+<form method="POST">
+  {% csrf_token %}
+  <center>
+    <div style="color: orangered">
+      <label for="input1">Enter First Value.</label>
+      <input type="text" name="input1" value = "{{n1}}"/><br />
+      <label for="input2">Enter Second Value.</label>
+      <input type="text" name="input2" value="{{n2}}"/><br />
+      <label>Select Operation</label>
+      <select name="operations">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option></select>
+      <br />
+      <button type="submit">Calculate</button><br />
+      <label>Output</label>
+      <input type="text" value="{{output}}">
+    </div>
+  </center>
+</form>
+{% endblock content %}

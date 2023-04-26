@@ -1,0 +1,63 @@
+{% extends 'base.html' %} {% block content %}
+<div style="color: aliceblue">
+  {% for n in servicesData %}
+  <h4>{{n.service_icon | safe}}</h4>
+  <p>{{n.service_title | safe }}</p>
+  <p>{{n.service_des | safe }}</p>
+  {% endfor %}
+</div>
+<div class="content">
+  <h1>Web Design & <br /><span>Development</span><br />Course</h1>
+  <p class="par">
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Libero, reiciendis
+    voluptatum? <br/>
+    Consequatur ipsum ad vitae sunt sed praesentium rerum necessitatibus in
+    <br />
+    deserunt possimus ut dolorum sint quisquam, eligendi amet odio.
+  </p>
+  <button class="cn"><a href="#">JOIN US</a></button>
+
+  <form method="POST" action="{% url 'home' %}">
+    {% csrf_token %}
+
+    <div class="form">
+      <h2>LOGIN HERE</h2>
+      <input
+        type="text"
+        name="Name"
+        value="{{name}}"
+        placeholder="Enter name here."
+      />
+      <input
+        type="email"
+        name="Email"
+        value="{{emailid}}"
+        placeholder="Enter email here."
+      />
+      <input
+        type="password"
+        name="Password"
+        value="{{password}}"
+        placeholder="Enter password here."
+      />
+      <button type="submit" class="btnn"><a>LOGIN</a></button>
+  </form>
+  <div>
+    <p class="link">
+      Don't have an account? <a href="#"><br />Sign up </a>here
+    </p>
+    <p class="liw">Log In with</p>
+
+    <div class="icons">
+      <center>
+        <a href="#"><i class="fa fa-facebook"></i></a>
+        <a href="#"><i class="fa fa-instagram"></i></a>
+        <a href="#"><i class="fa fa-linkedin"></i></a>
+        <a href="#"><i class="fa fa-twitter"></i></a>
+        <a href="#"><i class="fa fa-reddit"></i></a>
+      </center>
+    </div>
+    </div>
+  </div>
+</div>
+{% endblock content %} {% include "footer.html" %}

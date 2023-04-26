@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Landing Page</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"/>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  </head>
+  <body>
+    <div class="main">
+      <div class="navbar">
+        <div class="icon">
+          <h2 class="logo">LOGO</h2>
+        </div>
+        <div class="menu">
+          {{request.path}}
+          <ul>
+            <li class = "{% if request.path == '/' %} active {% endif %}"><a href="{% url 'home' %}">HOME</a></li>
+            <li class = "{% if request.path == '/about-us/' %} active {% endif %}"><a href="{% url 'about' %}">ABOUT</a></li>
+            <li class = "{% if request.path == '/services/' %} active {% endif %}"><a href="{% url 'services' %}">SERVICE</a></li>
+            <li><a href="#">DESIGN</a></li>
+            {% url 'contact' as urls %}
+            <li class = "{% if request.path == urls %} active {% endif %}"><a href="{{urls}}">CALCULATOR</a></li>
+          </ul>
+        </div>
+        <div class="search">
+            <input
+              class="srch"
+              type="search"
+              name=""
+              placeholder="Type to Search"
+            />
+            <a href="#"><button class="btn">Search</button></a>
+          </div>
+        </div>
